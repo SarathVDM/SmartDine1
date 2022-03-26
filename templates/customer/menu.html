@@ -1,0 +1,129 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Restaurant 2022</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'cu/css/reset.css' %}" type="text/css" media="screen">
+<link rel="stylesheet" href="{% static 'cu/css/style.css' %}" type="text/css" media="screen">
+<link rel="stylesheet" href="{% static 'cu/css/grid.css' %}" type="text/css" media="screen">
+<link rel="icon" href="{% static 'cu/images/favicon.ico' %}" type="image/x-icon">
+<link rel="shortcut icon" href="{% static 'cu/images/favicon.ico' %}" type="image/x-icon">
+<link href="{% static 'cu/http://fonts.googleapis.com/css?family=PT+Serif+Caption:400,400italic' %}" rel="stylesheet" type="text/css">
+<script src="{% static 'cu/js/jquery-1.7.1.min.js' %}" ></script>
+<script src="{% static 'cu/js/superfish.js' %}"></script>
+<!--[if lt IE 9]>
+<script src="{% static 'cu/js/html5.js' %}"></script>
+<link rel="stylesheet" href="{% static 'cu/css/ie.css' %}">
+<link href="{% static 'cu/http://fonts.googleapis.com/css?family=PT+Serif+Caption:400' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'cu/http://fonts.googleapis.com/css?family=PT+Serif+Caption:400italic' %}" rel="stylesheet" type="text/css">
+<![endif]-->
+</head>
+<body>
+<header>
+  <div class="line-top"></div>
+  <div class="main">
+    <div class="row-top">
+      <h1><a href="index.html"><img alt="" src="{% static 'cu/images/logo.png' %}"></a></h1>
+      <nav>
+        <ul class="sf-menu">
+          <li><a href="{% url 'customer_home' %}">Home</a></li>
+
+          <li class="active"><a href="{% url 'view_food' %}">MENU</a>
+             <li><a href="{% url 'view_order' %}">MY ORDER</a> </li>
+
+          </li>
+          <li><a href="{% url 'view_che' %}">Our Chefs</a> </li>
+          <li><a href="chefs.html">BOOK YOUR TABLE</a> </li>
+          <li><a href="{% url 'logout' %}">LOGOUT</a> </li>
+        </ul>
+      </nav>
+      <div class="clear"></div>
+    </div>
+
+  </div>
+      <form method="get" style="float:right" class="form-inline ">
+    <div class="md-form my-0">
+        {{foodFilter.form }}
+        <button class="btn btn-primary" type="submit">Search</button>
+    </div>
+</form><br><br><br>
+</header>
+<section id="content">
+  <div class="border-horiz"></div>
+  <div class="container_12">
+    <article class="side-bar extra">
+      <h3><strong></strong> Our<em>Main<br>
+        Specialities</em> </h3>
+      <ul class="list-dropcap1">
+        <li>
+          <div class="wrapper">
+            <div class="dropcap">1</div>
+            <h4>Book Your <br>
+              Favourate Foods</h4>
+          </div>
+          <p>A restaurant is a business that prepares and serves food and drinks to customers. Meals are generally served and eaten on the premises, but many restaurants also offer take-out and food delivery services.</p>
+          <a href="#" class="btn">Read more</a> </li>
+        <li>
+          <div class="wrapper">
+            <div class="dropcap">2</div>
+            <h4>Friendly</h4>
+          </div>
+          <p>In the restaurant industry, good customer service means being friendly, available, attentive and quick to take care of customers' needs.</p>
+          <a href="#" class="btn">Read more</a> </li>
+        <li>
+          <div class="wrapper">
+            <div class="dropcap">3</div>
+            <h4>Online
+              Dining</h4>
+          </div>
+          <p>sadipscing elitsed diaonumy eirmod tempor duo dolores et ea rebum. Stet clita.</p>
+          <a href="#" class="btn">Read more</a> </li>
+      </ul>
+
+    </article>
+    <article class="grid_8">
+      <h3>FOOD MENU</h3>
+      <ul class="list-recipes">
+          {% for f in foods %}
+        <li>
+          <figure class="box-img"><img src="{{f.pic.url}}"style="width:250px;height:300px;" alt=""></figure>
+          <div class="overflow">
+            <h4>{{f.FoodName}}</h4>
+           FOOD TYPE: <p>{{f.food_type}}</p>
+            CATEGORY:<p>{{f.food_category}}</p>
+            PRICE:<p>{{f.Price}}</p>
+            <p><a href="{% url 'add_order' id=f.id  %}" class="btn">Order Now</a> </p>
+          </div>
+          <div class="clear"></div>
+        </li>
+         {% empty %}
+                <tr>
+                    <td colspan="7">
+                        <div class="alert alert-primary" role="alert">
+                            <h4>No Results Found</h4>
+                        </div>
+                    </td>
+                </tr>
+    {% endfor %}
+
+      </ul>
+    </article>
+    <div class="clear"></div>
+  </div>
+</section>
+<footer>
+  <div class="main">
+    <ul class="soc-list">
+      <li><a href="#"><img alt="" src="images/icon-1.png"></a></li>
+      <li><a href="#"><img alt="" src="images/icon-2.png"></a></li>
+      <li><a href="#"><img alt="" src="images/icon-3.png"></a></li>
+      <li><a href="#"><img alt="" src="images/icon-4.png"></a></li>
+    </ul>
+
+    <div class="clear"></div>
+  </div>
+</footer>
+</body>
+</html>

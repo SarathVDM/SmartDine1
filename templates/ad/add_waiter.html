@@ -1,0 +1,37 @@
+{% extends 'ad/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Form-v9 by Colorlib</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="{% static 'add_chef/css/nunito-font.css' %}">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="{% static 'add_chef/css/style.css' %}"/>
+</head>
+<body class="form-v9">
+	<div class="page-content">
+
+		<div class="form-v9-content" style="background-image: url('images/form-v9.jpg')">
+			<form class="form-detail"  method="post">
+					{% for message in messages %}
+		<div style="color:red;">{{message}}</div>
+		{% endfor %}
+				<h2> REGISTER Waiter</h2>
+				 {% csrf_token %}
+                        {{ form|crispy }}
+                        {{ n_form|crispy }}
+				<div class="form-row-last">
+					<input type="submit" name="register" class="register" value="Register">
+				</div>
+			</form>
+		</div>
+	</div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
+{% endblock content %}

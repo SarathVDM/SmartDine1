@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>RESTAURENT</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'cu/css/reset.css' %}" type="text/css" media="screen">
+<link rel="stylesheet" href="{% static 'cu/css/style.css' %}" type="text/css" media="screen">
+<link rel="stylesheet" href="{% static 'cu/css/grid.css' %}" type="text/css" media="screen">
+<link rel="icon" href="{% static 'cu/images/favicon.ico' %}" type="image/x-icon">
+<link rel="shortcut icon" href="{% static 'cu/images/favicon.ico' %}" type="image/x-icon">
+<link href="{% static 'cu/http://fonts.googleapis.com/css?family=PT+Serif+Caption:400,400italic' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{% static 'cu/css/flexslider.css' %}" type="text/css" media="screen">
+<script src="{% static 'cu/js/jquery-1.7.1.min.js' %}" ></script>
+<script src="{% static 'cu/js/superfish.js' %}"></script>
+<script src="{% static 'cu/js/jquery.flexslider-min.js' %}"></script>
+<script>
+jQuery(window).load(function () {
+    jQuery('.flexslider').flexslider({
+        animation: "fade",
+        slideshow: true,
+        slideshowSpeed: 7000,
+        animationDuration: 600,
+        prevText: "",
+        nextText: "",
+        controlNav: false
+    })
+});
+</script>
+<!--[if lt IE 9]>
+<script src="{% static 'cu/js/html5.js' %}"></script>
+<link rel="stylesheet" href="{% static 'cu/css/ie.css' %}">
+<link href="{% static 'cu/http://fonts.googleapis.com/css?family=PT+Serif+Caption:400italic' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'cu/http://fonts.googleapis.com/css?family=PT+Serif+Caption:400' %}" rel="stylesheet" type="text/css">
+<![endif]-->
+</head>
+<body>
+<header>
+  <div class="line-top"></div>
+  <div class="main">
+    <div class="row-top">
+      <h1><a href="index.html"><img alt="" src="{% static 'cu/images/logo.png' %}"></a></h1>
+      <nav>
+        <ul class="sf-menu">
+          <li class="active"><a href="{% url 'customer_home' %}">Home</a></li>
+           <li><a href="{% url 'view_food' %}">MENU</a>
+          <li><a href="{% url 'view_order' %}">MY ORDERS </a> </li>
+
+
+          </li>
+          <li><a href="{% url 'view_che' %}">VIEW OUR CHEFS</a> </li>
+          <li><a href="{% url 'order_table' %}">BOOK YOUR TABLE</a> </li>
+          <li><a href="{% url 'view_table_req' %}">BOOKed TABLE</a> </li>
+          <li><a href="{% url 'logout' %}">LOG OUT</a> </li>
+        </ul>
+      </nav>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+
+{% block content %}
+  {% endblock  %}
+
+  <footer>
+  <div class="main">
+    <ul class="soc-list">
+      <li><a href="#"><img alt="" src="{% static 'cu/images/icon-1.png' %}"></a></li>
+      <li><a href="#"><img alt="" src="{% static 'cu/images/icon-2.png' %}"></a></li>
+      <li><a href="#"><img alt="" src="{% static 'cu/images/icon-3.png' %}"></a></li>
+      <li><a href="#"><img alt="" src="vimages/icon-4.png' %}"></a></li>
+    </ul>
+    <div class="policy">Design by: <a href="http://www.templatemonster.com">TemplateMonster.com</a> </div>
+    <div class="clear"></div>
+  </div>
+</footer>
+</body>
+</html>

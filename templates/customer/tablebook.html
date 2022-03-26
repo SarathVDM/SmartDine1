@@ -1,0 +1,27 @@
+{% extends 'customer/base.html' %}
+{% load static %}
+{% load crispy_forms_filters %}
+{% block content %}
+<section id="content">
+  <div class="border-horiz"></div>
+
+  <div class="box-contact">
+    <h3>book table</h3>
+            {% for mess in messages %}
+
+<!--                <div>id="contact-form"-->
+<div>
+                  <strong style="color:red;">{{mess}}</strong>
+                </div>
+                {% endfor %}
+    <form  method="post">
+      {% csrf_token %}
+
+ {{b_form|crispy}}
+        <div class="clear"></div>
+        <button class="btn" type="submit">BOOK NOW</button>
+
+    </form>
+  </div>
+</section>
+{% endblock %}

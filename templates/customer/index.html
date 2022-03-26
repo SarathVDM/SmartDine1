@@ -1,0 +1,41 @@
+
+{% extends 'customer/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="box-slider">
+    <div class="flexslider">
+      <ul class="slides">
+        <li> <img alt="" src="{% static 'cu/images/slide-1.jpg' %}"></li>
+        <li> <img alt="" src="{% static 'cu/images/slide-2.jpg' %}"></li>
+      </ul>
+    </div>
+  </div>
+  <div class="box-slogan">
+    <h3>Welcome to Our Restuarent</h3>
+    <p> for <a href="#" class="link-1">delicious</a> food </p>
+  </div>
+</header>
+<section id="content">
+  <div class="border-horiz"></div>
+  <div class="container_12 row-1">
+    <article class="grid_4 thumbnail-1">
+      <h3><span>Vegan</span> cookings </h3>
+      <figure class="box-img"><img src="{% static 'cu/images/page1-img1.jpg' %}" alt=""></figure>
+      <p><a href="#" class="link-1">Click here</a> </p>
+      <a href="#" class="btn">Read more</a> </article>
+    <article class="grid_4 thumbnail-1">
+      <h3><span>grill</span> cookings </h3>
+      <figure class="box-img"><img src="{% static 'cu/images/page1-img2.jpg' %}" alt=""></figure>
+      <p>This web template is optimized for 1280X1024 screen resolution. It is also XHTML &amp; CSS valid.</p>
+      <a href="#" class="btn">Read more</a> </article>
+    <article class="grid_4 thumbnail-1">
+      <h3><span>dessert</span> cookings </h3>
+      <figure class="box-img"><img src="{% static 'cu/images/page1-img3.jpg' %}" alt=""></figure>
+      <p>The PSD source files of this template are available for free for the registered members.</p>
+      <a href="#" class="btn">Read more</a> </article>
+    <div class="clear"></div>
+  </div>
+  <div class="border-horiz"></div>
+
+</section>
+{% endblock  %}

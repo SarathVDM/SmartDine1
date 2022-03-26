@@ -1,0 +1,81 @@
+{% extends 'customer/base.html' %}
+{% load static %}
+
+{% block content %}
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Table 03</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="{% static 'view/https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %}">
+
+	<link rel="stylesheet" href="{% static 'view/css/style.css' %}">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section"></h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h4 class="text-center mb-4">REQUESTED TABLE DETAILS</h4>
+					<div class="table-wrap">
+						<table class="table">
+					    <thead class="thead-primary">
+					      <tr>
+
+					        <th> ORDER ID</th>
+					        <th> TABLE NUMBER</th>
+
+
+					        <th> STATUS</th>
+
+
+					      </tr>
+					    </thead>
+					    <tbody>
+						  {% for i in data %}
+					      <tr>
+
+					        <td>{{i.id}}</td>
+					        <td>{{i.table_no}}</td>
+<td>{% if i.t_status == 0 %}
+
+                 <a href=""><b style="color:yellow;">Pending</b></a>
+
+                {% elif i.t_status == 1 %}
+                <p>approved</p>
+                {% else %}
+                <p>Order Rejected</p>
+                {% endif %}
+            </td>
+
+
+
+
+					      </tr>
+  {% endfor %}
+					    </tbody>
+					  </table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="{% static 'view/js/jquery.min.js' %}"></script>
+  <script src="{% static 'view/js/popper.js' %}"></script>
+  <script src="{% static 'view/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'view/js/main.js' %}"></script>
+	</body>
+</html>
+
+{% endblock content %}

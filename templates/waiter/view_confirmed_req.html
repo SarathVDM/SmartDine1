@@ -1,0 +1,92 @@
+{% extends 'waiter/base.html' %}
+{% load static %}
+
+{% block content %}
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Table 03</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="{% static 'view/https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %}">
+
+	<link rel="stylesheet" href="{% static 'view/css/style.css' %}">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section"></h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h4 class="text-center mb-4">VIEW FOOD REQUESTS</h4>
+					<div class="table-wrap">
+						<table class="table">
+					    <thead class="thead-primary">
+					      <tr>
+
+					        <th> ORDER ID</th>
+					        <th> FOOD NAME</th>
+					        <th> TABLE NUMBER</th>
+
+
+					        <th>ORDER  STATUS</th>
+					        <th> FOOD DELIVERY STATUS</th>
+
+
+					      </tr>
+					    </thead>
+					    <tbody>
+						  {% for i in data %}
+					      <tr>
+
+					        <td>{{i.id}}</td>
+					        <td>{{i.FoodName}}</td>
+					        <td>{{i.table_no}}</td>
+							  <td>{% if i.order_status == 0 %}
+                                <p>Pending</p>
+
+                                {% elif i.order_status == 1 %}
+								  <p>confirmed</p>
+                               {% else %}
+                             <p>Pending</p>
+                              {% endif %}
+                            </td>
+
+							  <td>{% if i.delivered_status == 0 %}
+
+                 <a href="{% url 'apr' i.id %}"><b style="color:red;">serve food</b></a>
+
+                {% elif i.delivered_status == 1 %}
+                <p style="color:Green;">delivered success</p>
+                {% else %}
+                <p>Order Rejected</p>
+                {% endif %}
+            </td>
+
+
+					      </tr>
+  {% endfor %}
+					    </tbody>
+					  </table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="{% static 'view/js/jquery.min.js' %}"></script>
+  <script src="{% static 'view/js/popper.js' %}"></script>
+  <script src="{% static 'view/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'view/js/main.js' %}"></script>
+	</body>
+</html>
+
+{% endblock content %}

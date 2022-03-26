@@ -1,0 +1,71 @@
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>MANAGER </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{% static 'adm/css/style.css' %}">
+  </head>
+  <body>
+
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+	          <i class="fa fa-bars"></i>
+	          <span class="sr-only">Toggle Menu</span>
+	        </button>
+        </div>
+	  		<h1><a href="index.html" class="logo">ADMIN HOME</a></h1>
+        <ul class="list-unstyled components mb-5">
+          <li class="active">
+            <a href="#"><span class="fa fa-home mr-3"></span> Homepage</a>
+          </li>
+          <li>
+              <a href="{% url 'add_chef' %}"><span class="fa fa-user mr-3"></span> add chef</a>
+          </li>
+          <li>
+            <a href="{% url 'add_waiter' %}"><span class="fa fa-sticky-note mr-3"></span> add waiter</a>
+          </li>
+
+          <li>
+            <a href="{% url 'view_chef' %}"><span class="fa fa-paper-plane mr-3"></span> view chef</a>
+          </li>
+            <li>
+            <a href="{% url 'view_waiter' %}"><span class="fa fa-paper-plane mr-3"></span> view Waiter</a>
+          </li>
+            <li>
+            <a href="{% url 'add_tables' %}"><span class="fa fa-paper-plane mr-3"></span> table</a>
+          </li>
+            <li>
+            <a href="{% url 'view_re' %}"><span class="fa fa-paper-plane mr-3"></span>TABLE RESERVATION</a>
+          </li>
+            <li>
+            <a href="{% url 'view_in' %}"><span class="fa fa-paper-plane mr-3"></span>incredients needs</a>
+          </li>    <li>
+            <a href="{% url 'view_payment' %}"><span class="fa fa-paper-plane mr-3"></span>PAYMENTS</a>
+          </li>
+          <li>
+            <a href="{% url 'logout' %}"><span class="fa fa-paper-plane mr-3"></span> logout</a>
+          </li>
+        </ul>
+
+    	</nav>
+
+
+            {% block content %}
+            {% endblock content %}
+
+
+              <script src="{% static 'admjs/jquery.min.js' %}"></script>
+    <script src="{% static 'admjs/popper.js' %}"></script>
+    <script src="{% static 'admjs/bootstrap.min.js' %}"></script>
+    <script src="{% static 'admjs/main.js' %}"></script>
+  </body>
+</html>

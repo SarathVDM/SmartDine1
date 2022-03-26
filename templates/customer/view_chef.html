@@ -1,0 +1,36 @@
+{% extends 'customer/base.html' %}
+{% load static %}
+
+{% block content %}
+<section id="content">
+  <div class="border-horiz"></div>
+  <div class="container_12">
+    <article class="side-bar extra1">
+      <h3><span>About</span>Our Chef</h3>
+      <figure class="box-img img-indent1"><img src="{% static 'cu/images/page5-img1.jpg' %}" alt=""></figure>
+      <div class="inner-1"> <a href="#" class="link-1"> </a>
+        <p>Chef responsibilities include studying recipes, setting up menus and preparing high-quality dishes. You should be able to delegate tasks to kitchen staff to ensure meals are prepared in a timely manner. Also, you should be familiar with sanitation regulations.</p>
+         </div>
+    </article>
+    <article class="grid_8">
+      <h3>Our Chefs</h3>
+      <ul class="list-recipes extra">
+          {% for i in data %}
+        <li>
+          <figure class="box-img"><img src="{% static 'cu/images/page5-img2.jpg' %}" alt=""></figure>
+          <div class="overflow">
+            <h4>{{i.Name}}</h4>
+            <p>QUALIFICATION:-{{i.Qualification}}</p>
+                    <p>Chef responsibilities include studying recipes, setting up menus and preparing high-quality dishes. You should be able to delegate tasks to kitchen staff to ensure meals are prepared in a timely manner. Also, you should be familiar with sanitation regulations.</p>
+
+             </div>
+          <div class="clear"></div>
+        </li>
+  {% endfor %}
+      </ul>
+    </article>
+    <div class="clear"></div>
+  </div>
+</section>
+
+{% endblock %}

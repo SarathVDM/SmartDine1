@@ -1,0 +1,42 @@
+
+
+{% extends 'customer/base.html' %}
+{% load static %}
+{% load crispy_forms_filters %}
+{% block content %}
+<section id="content">
+  <div class="border-horiz"></div>
+
+  <div class="box-contact">
+    <h3>PLACE YOUR FOOD ORDER WITH PAYMENT</h3>
+            {% for mess in messages %}
+
+<!--                <div>id="contact-form"-->
+<div>
+                  <strong style="color:red;">{{mess}}</strong>
+                </div>
+                {% endfor %}
+    <form  method="post">
+     {% csrf_token %}
+
+FOODNAME:<input type="text" name="FoodName" value="{{key.FoodName}}"><br><br>
+FOOD TYPE:<input type="text" name="food_type"  value="{{key.food_type}}"><br><br>
+PRICE:<input type="text"  name="Price" value="{{key.Price}}"><br><br>
+
+  SELECT TABLE NUMBER:<select  name="table_no" class="program-dropdown" style="width:400px;">
+                            {% for t in t %}
+                                <option value="{{ t.id }}">{{ t.Table_no }}</option>
+                                    {% endfor %}
+                         </select><br><br>
+
+PHONE NUMBER:-<input type="text" name="phone"><br><br>
+CARDNUMBER:-<input type="text" name="cardnumber"><br><br>
+CVV:-<input type="text" name="cvv"><br><br>
+DATE:-<input type="date" name="date"><br><br>
+        <div class="clear"></div>
+        <button class="btn" type="submit">PAY NOW</button>
+
+    </form>
+  </div>
+</section>
+{% endblock %}
